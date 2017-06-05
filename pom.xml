@@ -8,6 +8,7 @@
   	<module>tcc-transaction-core</module>
   	<module>tcc-transaction-spring</module>
   	<module>tcc-transaction-api</module>
+  	<module>tcc-transaction-web-pay</module>
   </modules>
   
     <distributionManagement>
