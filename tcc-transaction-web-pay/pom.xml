@@ -25,12 +25,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.mengyun</groupId>
-			<artifactId>tcc-transaction-dubbo-order-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>com.101tec</groupId>
 			<artifactId>zkclient</artifactId>
 		</dependency>
@@ -80,6 +74,11 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.wutao</groupId>
+			<artifactId>tcc-transaction-spring</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
