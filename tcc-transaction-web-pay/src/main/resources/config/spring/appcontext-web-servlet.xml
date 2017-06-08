@@ -88,5 +88,7 @@
 
        <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
        <bean id="fmHtmlEscape" class="freemarker.template.utility.HtmlEscape"/>
+       
+       <import resource="classpath:tcc-transaction.xml" />
               
 </beans>

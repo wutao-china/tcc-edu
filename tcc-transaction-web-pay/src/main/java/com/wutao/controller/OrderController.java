@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wutao.annotation.Compensable;
+
 /**
  * Created by changming.xie on 4/1/16.
  */
@@ -34,17 +36,17 @@ public class OrderController {
      * @param shopId
      * @return
      */
-    @RequestMapping(value = "/user/{userId}/shop/{shopId}",method = RequestMethod.GET)
-    public ModelAndView getProductsInShop(@PathVariable long userId,
-                                          @PathVariable long shopId){
+    @RequestMapping(value = "/user/pay",method = RequestMethod.GET)
+    @Compensable(comfirmMethod = "confirmCompleteSuccessOrder",cancelMethod = "cancelCompleteSuccessOrder")
+    public ModelAndView getProductsInShop(){
         /*List<Product> products = placeOrderService.findProductByShopId(shopId);
 
-        ModelAndView mv = new ModelAndView("/shop");
 
         mv.addObject("products",products);
         mv.addObject("userId",userId);
         mv.addObject("shopId",shopId);*/
-
+    	ModelAndView mv = new ModelAndView("/shop");
+    	
         return mv;
     }
 

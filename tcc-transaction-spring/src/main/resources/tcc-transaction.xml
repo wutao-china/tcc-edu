@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <context:component-scan base-package="com.wutao"/>
+
+	<!-- TCC补偿切面 -->
+    <bean id="tccCompensableAspect" class="com.wutao.aspect.TccCompensableAspect">
+        <!-- <property name="compensableTransactionInterceptor" ref="compensableTransactionInterceptor"/> -->
+    </bean>
+
+	<!-- TCC事务上下文切面 -->
+<!--     <bean id="transactionContextAspect" class="org.mengyun.tcctransaction.spring.TccTransactionContextAspect">
+        <property name="resourceCoordinatorInterceptor" ref="resourceCoordinatorInterceptor"/>
+    </bean> -->
+
+	<!-- 启用定时任务注解 -->
+    <task:annotation-driven/>
+
+	<!-- 事务恢复任务调度器 -->
+<!--     <bean id="recoverScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+
+	事务恢复调度任务，初始化方法：init
+    <bean id="recoverScheduledJob" class="org.mengyun.tcctransaction.spring.recover.RecoverScheduledJob" init-method="init">
+        <property name="transactionConfigurator" ref="tccTransactionConfigurator"/>
+        <property name="transactionRecovery" ref="transactionRecovery"/>
+        <property name="scheduler" ref="recoverScheduler"/>
+    </bean> -->
+
+</beans>
