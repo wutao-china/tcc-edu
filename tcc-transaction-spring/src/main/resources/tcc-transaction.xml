@@ -7,7 +7,28 @@
 
     <aop:aspectj-autoproxy/>
 
-    <context:component-scan base-package="com.wutao"/>
+    <context:component-scan base-package="com.wutao.aspect"/>
+
+	<!-- TCC事务配置器 -->
+<!--     <bean id="tccTransactionConfigurator" class="org.mengyun.tcctransaction.spring.support.TccTransactionConfigurator">
+    </bean> -->
+
+	<!-- 事务恢复 -->
+<!--     <bean id="transactionRecovery" class="org.mengyun.tcctransaction.recover.TransactionRecovery">
+        <property name="transactionConfigurator" ref="tccTransactionConfigurator"/>
+    </bean> -->
+
+	<!-- 可补偿事务拦截器 -->
+<!--     <bean id="compensableTransactionInterceptor"
+          class="org.mengyun.tcctransaction.interceptor.CompensableTransactionInterceptor">
+        <property name="transactionConfigurator" ref="tccTransactionConfigurator"/>
+    </bean> -->
+
+	<!-- 资源协调拦截器 -->
+<!--     <bean id="resourceCoordinatorInterceptor"
+          class="org.mengyun.tcctransaction.interceptor.ResourceCoordinatorInterceptor">
+        <property name="transactionConfigurator" ref="tccTransactionConfigurator"/>
+    </bean> -->
 
 	<!-- TCC补偿切面 -->
     <bean id="tccCompensableAspect" class="com.wutao.aspect.TccCompensableAspect">

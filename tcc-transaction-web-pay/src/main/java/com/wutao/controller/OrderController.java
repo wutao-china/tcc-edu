@@ -37,16 +37,17 @@ public class OrderController {
      * @return
      */
     @RequestMapping(value = "/user/pay",method = RequestMethod.GET)
-    @Compensable(comfirmMethod = "confirmCompleteSuccessOrder",cancelMethod = "cancelCompleteSuccessOrder")
+    @Compensable(comfirmMethod="",cancelMethod="")
     public ModelAndView getProductsInShop(){
+    	ModelAndView mv = new ModelAndView("/shop");
         /*List<Product> products = placeOrderService.findProductByShopId(shopId);
 
+        ModelAndView mv = new ModelAndView("/shop");
 
         mv.addObject("products",products);
         mv.addObject("userId",userId);
         mv.addObject("shopId",shopId);*/
-    	ModelAndView mv = new ModelAndView("/shop");
-    	
+
         return mv;
     }
 

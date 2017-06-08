@@ -8,13 +8,13 @@
 	</parent>
 	<artifactId>tcc-transaction-spring</artifactId>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>com.wutao</groupId>
 			<artifactId>tcc-transaction-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -50,5 +50,7 @@
 			<artifactId>log4j</artifactId>
 		</dependency>
 
+
 	</dependencies>
+
 </project>
