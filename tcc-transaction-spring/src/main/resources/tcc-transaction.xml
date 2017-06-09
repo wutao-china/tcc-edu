@@ -36,9 +36,9 @@
     </bean>
 
 	<!-- TCC事务上下文切面 -->
-<!--     <bean id="transactionContextAspect" class="org.mengyun.tcctransaction.spring.TccTransactionContextAspect">
-        <property name="resourceCoordinatorInterceptor" ref="resourceCoordinatorInterceptor"/>
-    </bean> -->
+    <bean id="transactionContextAspect" class="com.wutao.aspect.TccTransactionContextAspect">
+        <!-- <property name="resourceCoordinatorInterceptor" ref="resourceCoordinatorInterceptor"/> -->
+    </bean>
 
 	<!-- 启用定时任务注解 -->
     <task:annotation-driven/>

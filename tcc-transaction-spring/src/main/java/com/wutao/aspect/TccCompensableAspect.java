@@ -9,19 +9,26 @@ import org.springframework.core.Ordered;
 @Aspect
 public class TccCompensableAspect implements Ordered {
 	
+	private int order = Ordered.HIGHEST_PRECEDENCE; // 最高优先级（值较低的那个有更高的优先级）
+	
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
 	@Pointcut("@annotation(com.wutao.annotation.Compensable)")
 	public void compensableService(){
 		
 	}
 	
 	@Around("compensableService()")
-	public void around(ProceedingJoinPoint pjp){
-		System.out.println("=====>测试");
+	public Object around(ProceedingJoinPoint pjp) throws Throwable{
+		Object[] args = pjp.getArgs();
+		return pjp.proceed();
 	}
 
 	@Override
 	public int getOrder() {
 		// TODO Auto-generated method stub
-		return 0;
+		return order;
 	}
 }
